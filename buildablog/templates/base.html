@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style>
+            .error {
+                color: red;
+                font-style: italic;
+            }
+
+            .title {
+                font-size: 50px;
+                font-weight: bold;
+            }
+
+            .body {
+                font-size: 25px;
+            }
+
+            .body_textarea {
+                width: 200px;
+                height: 200px;
+            }
+        </style>
+    </head>
+<body>
+    <div>
+        <a href='/blogs'>Blogs</a>
+        <a href='/newpost'>Add Blog Entry</a>
+    </div>
+    <div style='text-align:right'>
+        <a href='/logout'>Logout</a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+        {% for category,message in messages %}
+            <li class="{{category}}">{{message}}</li>
+        {% endfor %}
+        </ul>
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

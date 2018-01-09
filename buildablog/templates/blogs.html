@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style='text-align:center'>{{title}}</h1>
+
+    {% for blog in blogs %}
+        <a href='/blogs?id={{blog.id}}' class='title'>{{blog.title}}</a>
+        <p class='body'>{{blog.body}}</p>
+
+        <hr />
+    {% endfor %}
+
+{% endblock %}
